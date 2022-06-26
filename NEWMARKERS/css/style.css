@@ -1,0 +1,123 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+</style>
+
+html{font-size: 13px;/*1rem*/}
+*{color: #3e3d3c;box-sizing: border-box;font-family: 'Noto Sans KR', sans-serif;}
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{margin: 0;padding: 0;}
+ul,ol,dl{margin: 0;padding: 0;list-style: none}
+a{text-decoration: none;}
+/** 상단, 로고 영역S*/
+header {display: flex; 
+    justify-content: space-between;
+    padding: 0px 15px;
+    border-bottom:1px solid gray;
+    height: 66px; align-items: center;}
+header .left i:first-of-type{font-size: 28px;margin-right: 15px;}
+
+header .left i:last-of-type,header .right i{font-size: 28px;}
+.logo {
+    background-size: cover;
+}
+
+/** 상단, 로고 영역E*/
+
+
+.left {
+    
+}
+
+/*메인 메뉴 S*/
+nav {
+    display: flex;
+}
+nav a{
+    flex-grow: 1;
+    text-align: center;
+    color: #494949;
+    padding: 12px 0px;
+    
+}
+/*메인 메뉴 E*/
+
+
+
+.main-banner .swiper-slide img {
+    width: 100%;
+    display: block;
+}
+
+
+
+.main-banner .swiper-button-next,
+.main-banner .swiper-button-prev {
+    color: #fff;
+}
+.main-banner .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+}
+.main-banner .swiper-pagination-bullet-active{
+    background-color: #fff;
+}
+
+/*메인중간 S*/
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu a{
+    width: calc(100% / 3);
+    text-align: center;
+    height: 50px;
+    font-weight: 500;
+    line-height: 50px;
+    border-top: 1px solid #939393;
+    border-left: 1px solid #ededed;
+    
+    
+}
+.menu a:nth-of-type(3n+1){
+    border-left: 0;
+}
+.menu a:nth-of-type(1),
+.menu a:nth-of-type(2),
+.menu a:nth-of-type(3){
+    border-top: 0;
+}
+
+
+/*메인중간 E*/
+
+/*배스트상품 S*/
+.products h3{
+    font-size: 1.538rem;
+    text-align: center;
+    color: #212121;
+    line-height: 1;
+    margin: 40px 0 15px;
+    
+}
+.products ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15px;
+}
+.products ul>li{
+    width: calc(50%-8px);
+    
+}
+.products ul>li .image{
+    width: 1 
+}
+
+/*배스트상품 E*/
+
+
+

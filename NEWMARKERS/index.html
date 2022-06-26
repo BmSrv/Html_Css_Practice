@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>뉴마커스 디자인</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
+</head>
+
+<body>
+    <!--   로고, 상단 메뉴 S   -->
+    <header>
+
+        <div class="left">
+            <i class="more xi-bars"></i>
+            <i class="search xi-search"></i>
+
+        </div>
+
+
+        <a href="/index.html"><img src="logo.png" alt="로고" class="logo"></a>
+
+
+        <div class="right">
+            <a href="#">
+                <i class="xi-user-o"></i>
+            </a>
+            <a href="#">
+                <i class="xi-cart-o"></i>
+            </a>
+
+        </div>
+
+    </header>
+    <!--    로고, 상단 메뉴E   -->
+
+    <!--   메인메뉴 S    -->
+    <nav>
+        <a href="#">제품 구매</a>
+        <a href="#">질문과 답변</a>
+        <a href="#">구매후기</a>
+        <a href="#">고객센터</a>
+    </nav>
+    <!--    메인메뉴 E   -->
+
+    <main>
+        <!--       메인 롤링 배너 S   -->
+        <section class="main-banner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="main_banner.jpg" alt="메인배너">
+                    </div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+
+            </div>
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                });
+            </script>
+        </section>
+        <!--        메인 롤링 배너 E   -->
+        <!--        메인 중간 S-->
+        <section class="menu">
+            <a href="#">에어간판</a>
+            <a href="#">실사출력</a>
+            <a href="#">현수막&베너</a>
+            <a href="#">에어간판</a>
+            <a href="#">에어간판</a>
+            <a href="#">에어간판</a>
+            <a href="#">에어간판</a>
+            <a href="#">에어간판</a>
+            <a href="#">에어간판</a>
+
+
+        </section>
+        <!--        메인 중간 E-->
+
+        <!--        베스트 상품 S-->
+        <section class="products">
+            <h3>베스트상품</h3>
+
+            <ul>
+                <a href="">
+                    <li>
+                        <img class="image" src="Product.jpg" alt="에어간판 천갈이">
+
+                        <div class="price">
+                            <strong class="montserrat">44000</strong>원~
+                        </div>
+                        <div class="product-nm">에어간판 천갈이</div>
+
+                    </li>
+                    <li>
+                        <img class="image" src="Product.jpg" alt="에어간판 천갈이">
+
+                        <div class="price">
+                            <strong class="montserrat">44000</strong>원~
+                        </div>
+                        <div class="product-nm">에어간판 천갈이</div>
+
+                    </li>
+                    <li>
+                        <img class="image" src="Product.jpg" alt="에어간판 천갈이">
+
+                        <div class="price">
+                            <strong class="montserrat">44000</strong>원~
+                        </div>
+                        <div class="product-nm">에어간판 천갈이</div>
+
+                    </li>
+                    <li>
+                        <img class="image" src="Product.jpg" alt="에어간판 천갈이">
+
+                        <div class="price">
+                            <strong class="montserrat">44000</strong>원~
+                        </div>
+                        <div class="product-nm">에어간판 천갈이</div>
+
+                    </li>
+
+                </a>
+            </ul>
+        </section>
+        <!--    베스트 상품E-->
+
+    </main>
+    <footer>
+
+    </footer>
+</body></html>
