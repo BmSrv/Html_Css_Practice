@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>자바스크립트 연습페이지</h1>
+    <script>
+        class Student {
+            constructor(name, mathScore, englishScore) {
+                this.name = name;
+                this.mathScore = mathScore;
+                this.englishScore = englishScore;
+                
+                alert(this.name+'추가완료');
+            }
+        }
+
+        class StdMenager {
+            constructor() {
+                this.student_List = new Array();
+                console.log('Manage 생서완료');
+            }
+            push(student) {
+                this.student_List.push(student);
+            }
+           getAllList(){
+                
+                return this.student_List;
+            }
+        }
+        
+        
+        const Manage = new StdMenager();
+        
+
+        class showmeanu {
+            constructor() {
+                
+                    
+                const input = prompt('1.추가 2.리스트출력 3. 검색 4.삭제');
+
+                switch (input) {
+                    case '1':
+                        console.log('1.추가')
+                        Manage.push(new Student(prompt('이름 입력해'),prompt('수학점수 입력해'),prompt('영어점수 입력해')));
+                        break;
+
+                    case '2':
+                        console.log('2.리스트출력');
+                        console.log(Manage.getAllList());
+                        break;
+
+                    case '3':
+                        console.log('3.검색')
+
+                        break;
+
+                    case '4':
+                        console.log('4.삭제')
+
+                        break;
+
+
+                }
+
+            
+
+        }
+
+
+        }
+        new showmeanu();
+    </script>
+
+</body></html>

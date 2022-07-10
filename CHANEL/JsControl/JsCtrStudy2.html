@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .student_Info {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .new_Student_Area {}
+        
+        .student_list{
+            margin: 30px;
+            
+            width: 500px;
+            height: 900px;
+        }
+        .student_slot{
+            margin-top: 30px;
+            background: white;
+            width: 100%;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="new_Student_Area">
+        <input id="nameValue" type="text">
+        <input id="ageValue" type="number">
+
+        <button id="addbtn">학생 추가</button>
+
+    </div>
+
+    <div class="student_list">
+        <div class="student_slot" id="slot1">
+            
+        </div>
+        <div class="student_slot" id="slot2">
+            
+        </div>
+        <div class="student_slot" id="slot3">
+            
+        </div>
+        <div class="student_slot" id="slot4">
+            
+        </div>
+        <div class="student_slot" id="slot5">
+            
+        </div>
+        
+        
+    </div>
+</body>
+
+<script>
+    function Student(name, age) {
+        Object.defineProperties(this, {
+            name: {
+                get: function() {
+                    return name;
+                },
+                set: function(newname) {
+                    name = newname;
+                },
+
+            },
+
+            age: {
+                get: function() {
+                    return age;
+
+                },
+                set: function(newage) {
+                    age = newage;
+                },
+
+
+            }
+
+
+        });
+        console.log(name,'추가됨')
+    }
+    function Studentmanege(){
+        this.StudentList=new Array();
+        
+    }
+    Studentmanege.prototype.add=function(student_temp){
+        this.StudentList.push(student_temp);
+        this.updateUI();
+    }
+    Studentmanege.prototype.remove=function(){
+        
+    }
+    Studentmanege.prototype.updateUI=function(){
+        document.getElementById('slot1').innerHTML='ddd';
+    }
+
+</script>
+
+<script>
+    const Stdmng=new Studentmanege();
+    
+    document.getElementById('addbtn').addEventListener('click', function() {
+        let namefield = document.getElementById('nameValue');
+        let agefield = document.getElementById('ageValue');
+        
+        Stdmng.add(new Student(namefield.value,agefield.value));
+        
+        namefield.value = null;
+        agefield.value = null;
+
+
+
+    })
+</script>
+
+
+
+
+</html>

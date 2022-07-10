@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(name, age, score) {
+            Object.defineProperties(this,{
+                name:{
+                    get:function(){
+                        return name;
+                    },
+                    set:function(newname){
+                        name=newname;
+                    }
+                    
+                },
+                age:{
+                    get:function(){
+                        return age;
+                    },
+                    set:function(newage){
+                        age=newage;
+                    }
+                    
+                },
+                score:{
+                    get:function(){
+                        return score;
+                        
+                    },
+                    set:function(newscore){
+                        score=newscore;
+                    }
+            }
+                
+                
+            });
+        }
+
+        function manege() {
+            this.StudentList = new Array();
+            console.log('StudentManeger  생성');
+
+        }
+
+        manege.prototype.addStudent = function(std) {
+            if (std instanceof Student) {
+                this.StudentList.push(std);
+                console.log('잘못된 객체 입니다.')
+
+
+            } else {
+                console.log('잘못된 객체 입니다.')
+            }
+
+        }
+        manege.prototype.showAllStudent = function() {
+            return this.StudentList;
+
+        }
+        manege.prototype.searchStudent = function(name) {
+            return this.StudentList.find(index => index.name == name);
+            
+
+        }
+
+        const StudentManeger = new manege();
+        StudentManeger.StudentList.push(new Student('정민상', 23, 100));
+        StudentManeger.StudentList.push(new Student('탁정모', 23, 100));
+        StudentManeger.StudentList.push(new Student('김민호', 23, 100));
+        StudentManeger.StudentList.push(new Student('배민서', 23, 100));
+        StudentManeger.StudentList.push(new Student('지민재', 23, 100));
+        StudentManeger.StudentList.push(new Student('박문수', 23, 100));
+        StudentManeger.StudentList.push(new Student('유하늘', 23, 100));
+
+
+
+
+
+        console.log(StudentManeger.showAllStudent());
+    </script>
+</body></html>

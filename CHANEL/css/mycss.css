@@ -1,4 +1,9 @@
-body{margin: 0;padding: 0;}
+body{margin: 0;padding: 0;
+display: flex;
+flex-direction: column;
+    align-items: center;
+    
+}
 ul,ol,dl{margin: 0;padding: 0;list-style: none}
 a{text-decoration: none;}
 header {
@@ -6,16 +11,13 @@ header {
     width: 100%;
     background-color: white;
     border-top: 8px solid black;
+    border-bottom: 1px solid gray; 
     
-   border-bottom: 1px solid gray; 
     box-sizing: border-box;
     display: flex;
-    
     align-items: center;
-
     justify-content: space-between;
     position: fixed;
-   
 }
 header div:first-of-type a:first-of-type{
     margin:15px;
@@ -45,6 +47,7 @@ header div:last-of-type a:last-of-type{
 
 .headerIconSize {
         font-size: 22px;
+    color: black;
         
 
 }
@@ -53,9 +56,9 @@ header div:last-of-type a:last-of-type{
     text-align: center;
     
 }
-.main img{
+e.main img{
     width: 100%;
-    height: 817px;
+    
 }
 
 
@@ -97,24 +100,27 @@ html {
     width: 100%;
     height: 530px;
     align-content: center;
-    
+    margin-bottom: 50px;
     
 }
 
 .ProductList h1{
     display: flex;
     justify-content: center;
+    font-size: 25px;
+    margin-bottom: 55px;
 }
 
 .product {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
     margin: 10px;
    
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
+    
+     width: 200px;
+    height: 300px;
 }
 
 .list {
@@ -123,4 +129,162 @@ html {
  
     
     justify-content: center;
+}
+.wish_chek_space{
+    display: flex;
+    flex-direction: row-reverse;
+    
+    
+}
+
+.product h3{
+    text-align: center;
+    font-size: 15px;
+    margin: 5px;
+}
+.product h6{
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    margin: 5px;
+}
+
+.product_img a{
+    width: 100%;
+    height: 100%;
+    
+}
+.product_img a img{
+    width: 100%;
+    height: 100%;
+    
+}
+.test{
+   text-align: center;
+}
+
+.Perfume_Area{
+    height: 1200px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Perfume_Area a{
+    margin: 40px;
+    display: flex;
+    height: 300px;
+    flex-grow: 1;
+    width: 100%;
+    
+    
+       
+}
+.Perfume_Area a > .img1 { background:url('https://puls-img.chanel.com/c_limit,w_1280/q_auto:best,dpr_auto,f_auto/1655367042398-onelpeditopush1080x1150pxegeryfrjpg_1150x1080.jpg') no-repeat center center; background-size: cover; }
+.Perfume_Area a > .img2 { background:url('https://puls-img.chanel.com/c_limit,w_1280/q_auto:best,dpr_auto,f_auto/1655367162531-onelpeditopush1080x1150pxpackfreauxjpg_1150x1080.jpg') no-repeat center center; background-size: cover; }
+.Perfume_Area a > .img3 { background:url('https://puls-img.chanel.com/c_limit,w_1280/q_auto:best,dpr_auto,f_auto/1651911225266-deskmobilefragrancelandingedito1jpg_1150x1080_max_md_md.jpg') no-repeat center center; background-size: cover; }
+.Perfume_Area a img{
+ 
+   
+    flex-grow: 1;
+    
+}
+
+.Perfume_Area div{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    
+
+}
+.Perfume_Area div h2{
+    margin: 0px;
+
+}
+
+.add_cart_text {
+    text-decoration: underline;
+}
+
+.Kategorie_view {
+   
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    
+    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 170px;
+    
+}
+.Kategorie_view  h1{
+    font-size: 25px;
+}
+
+.Kategorie_List {
+    display: flex;
+    width: 100%;
+
+    
+       align-items: center;
+    justify-content: center;
+   
+    
+}
+
+.Kategorie_value {
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.Kategorie_value img{
+    width: 100%;
+}
+
+
+
+.Perfume_woman_view {
+
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Perfume_woman_view img{
+    width: 100%;
+}
+.Perfume_woman_detail{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    
+}
+.Perfume_woman_detail h1{
+    margin-top: 5px;
+}
+
+.session_service {
+    display: flex;
+    margin-top: 100px;
+    background-color: beige;
+    width: 100%;
+    flex-grow: 1;
+}
+
+#back {
+    
 }

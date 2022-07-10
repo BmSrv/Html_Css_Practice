@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #back {
+            display: none;
+        }
+
+        #exe {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 id="Testid">테스트중</h1>
+
+    <button id="back" onclick='back()'>되돌리기</button>
+    <button id="exe" onclick='Clk()'>실행</button>
+
+    <script>
+        function Clk() {
+            document.getElementById('Testid').innerHTML = '버튼클릭';
+            document.getElementById('exe').style.display = 'none';
+            document.getElementById('back').style.display = 'block';
+
+        }
+
+        function back() {
+            document.getElementById('Testid').innerHTML = '테스트중';
+            document.getElementById('exe').style.display = 'block';
+            document.getElementById('back').style.display = 'none';
+        }
+    </script>
+</body></html>
