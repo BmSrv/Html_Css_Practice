@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
         }
+
         .student_Info {
             width: 100px;
             height: 100px;
@@ -16,51 +18,70 @@
         }
 
         .new_Student_Area {}
-        
-        .student_list{
+
+        .student_list {
             margin: 30px;
-            
+
             width: 500px;
             height: 900px;
         }
-        .student_slot{
+
+        .student_slot {
             margin-top: 30px;
             background: white;
             width: 100%;
             height: 50px;
             border: 1px solid black;
         }
+
+        #btn0,
+        #btn1,
+        #btn2,
+        #btn3,
+        #btn4 {
+            display: block;
+        }
+
     </style>
 </head>
 
 
 <body>
     <div class="new_Student_Area">
-        <input id="nameValue" type="text">
-        <input id="ageValue" type="number">
+        이름 <input id="nameValue" type="text">
+        나이<input id="ageValue" type="number">
 
         <button id="addbtn">학생 추가</button>
 
     </div>
 
     <div class="student_list">
+        <div class="student_slot" id="slot0">
+
+        </div>
+        <button class="rmbtn" id="btn0" onclick="rmbtn('slot0','btn0',0)">삭제</button>
         <div class="student_slot" id="slot1">
-            
+
         </div>
+        <button class="rmbtn" id="btn1" onclick="rmbtn('slot1','btn1',1)">삭제</button>
+
         <div class="student_slot" id="slot2">
-            
+
         </div>
+        <button class="rmbtn" id="btn2" onclick="rmbtn('slot2','btn2',2)">삭제</button>
+
         <div class="student_slot" id="slot3">
-            
+
         </div>
+        <button class="rmbtn" id="btn3" onclick="rmbtn('slot3','btn3',3)">삭제</button>
+
         <div class="student_slot" id="slot4">
-            
+
         </div>
-        <div class="student_slot" id="slot5">
-            
-        </div>
-        
-        
+        <button class="rmbtn" id="btn4" onclick="rmbtn('slot4','btn4',4)">삭제</button>
+
+
+
     </div>
 </body>
 
@@ -91,40 +112,71 @@
 
 
         });
-        console.log(name,'추가됨')
+        console.log(name, '추가됨')
     }
-    function Studentmanege(){
-        this.StudentList=new Array();
-        
+
+    function Studentmanege() {
+        this.StudentList = new Array();
+
     }
-    Studentmanege.prototype.add=function(student_temp){
-        this.StudentList.push(student_temp);
-        this.updateUI();
+    Studentmanege.prototype.add = function(student_temp) {
+        for (let i = 0; i < 5; i++) {
+            if (this.StudentList[i] == null) {
+                this.StudentList[i]=student_temp;
+                this.updateUI();
+                console.log(i,'에 추가')
+                return;
+            }
+
+        }
+        alert('초과')
     }
-    Studentmanege.prototype.remove=function(){
-        
+    Studentmanege.prototype.remove = function() {
+
     }
-    Studentmanege.prototype.updateUI=function(){
-        document.getElementById('slot1').innerHTML='ddd';
+    Studentmanege.prototype.updateUI = function() {
+        for (let i = 0; i < 5; i++) {
+            if (this.StudentList[i] == null) {
+                document.getElementById(`slot${i}`).textContent = '비어있음';
+                document.getElementById(`btn${i}`).style.display = 'none';
+            } else {
+                document.getElementById(`slot${i}`).innerHTML = `학생이름 : ${this.StudentList[i].name} 나이 : ${this.StudentList[i].age}`
+                document.getElementById(`btn${i}`).style.display = 'block';
+
+
+            }
+
+
+        }
+
     }
 
 </script>
 
 <script>
-    const Stdmng=new Studentmanege();
-    
+    function rmbtn(sel_slot, sel_rmbtn, num) {
+        document.getElementById(sel_slot).textContent = '비어있음';
+                document.getElementById(sel_rmbtn).style.display = 'none';
+        
+        delete Stdmng.StudentList[num];
+
+    }
+
+
+    const Stdmng = new Studentmanege();
+
     document.getElementById('addbtn').addEventListener('click', function() {
         let namefield = document.getElementById('nameValue');
         let agefield = document.getElementById('ageValue');
-        
-        Stdmng.add(new Student(namefield.value,agefield.value));
-        
+
+        Stdmng.add(new Student(namefield.value, agefield.value));
+
         namefield.value = null;
         agefield.value = null;
 
 
+    });
 
-    })
 </script>
 
 
