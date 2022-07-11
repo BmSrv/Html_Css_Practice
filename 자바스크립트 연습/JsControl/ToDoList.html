@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .TodoArea div {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ToDo_List</h1>
+    내용 <input id="doingval" type="text">
+    날짜 <input id="dateval" type="date">
+    <button id="addbtn">일정 추가</button>
+    <div id="TodoArea">
+
+
+
+
+    </div>
+</body>
+
+<script>
+    let TodoArea = document.getElementById('TodoArea');
+    TodoArea.style.border = '1px solid black';
+    TodoArea.style.minHeight = '300px';
+    TodoArea.style.marginTop = '20px';
+
+    function ToDoManege() {
+        this.TodoList = new Array();
+
+
+
+    }
+    ToDoManege.prototype.add = function(homeworkVal) {
+        console.log(`${homeworkVal.do} 추가완료`);
+        this.TodoList.push(homeworkVal);
+        this.UpdateUI();
+
+    }
+    ToDoManege.prototype.UpdateUI = function() {
+        TodoArea.innerHTML = "";
+
+        for (let i = 0; i < this.TodoList.length; i++) {
+            if(this.TodoList[i]==undefined){
+                continue;
+               }
+            TodoArea.innerHTML += `
+                <div id="DoingVal_${i}">
+                    ${this.TodoList[i].do} : ${this.TodoList[i].date}
+                    <button id="ScBtn_${i}"  onclick=" console.log(${i});">완료</button>
+                </div>
+            `;
+            let DoingVal = document.getElementById(`DoingVal_${i}`);
+            DoingVal.style.margin = '10px';
+            DoingVal.style.border = '1px solid gray';
+
+
+
+        }
+        function btn(){
+            console.log('1');
+        }
+        
+        
+
+    }
+</script>
+
+
+<script>
+    function homwork(play, when) {
+        Object.defineProperties(this, {
+
+            do: {
+                get: function() {
+                    return play;
+                },
+                set: function(newplay) {
+                    play = newplay;
+                },
+            },
+            date: {
+                get: function() {
+                    return when;
+                },
+                set: function(newwhen) {
+                    when = newwhen;
+                },
+            }
+
+
+
+        });
+    }
+</script>
+<script>
+    const Todo = new ToDoManege();
+
+
+    let doingval = document.getElementById('doingval');
+    let dateval = document.getElementById('dateval');
+    document.getElementById('addbtn').addEventListener("click", function() {
+        console.log(doingval.value);
+        console.log(dateval.value);
+
+        Todo.add(new homwork(doingval.value, dateval.value));
+        doingval.value = "";
+        dateval.value = "";
+    });
+</script></html>
