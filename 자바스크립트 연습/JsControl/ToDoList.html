@@ -51,19 +51,18 @@
             TodoArea.innerHTML += `
                 <div id="DoingVal_${i}">
                     ${this.TodoList[i].do} : ${this.TodoList[i].date}
-                    <button id="ScBtn_${i}"  onclick=" console.log(${i});">완료</button>
+                    <button id="ScBtn_${i}"  onclick="Todo.TodoList.splice(${i},1); console.log(${i}); Todo.UpdateUI();">완료</button>
                 </div>
             `;
             let DoingVal = document.getElementById(`DoingVal_${i}`);
             DoingVal.style.margin = '10px';
             DoingVal.style.border = '1px solid gray';
+            DoingVal.style.fontSize='20px';
 
 
 
         }
-        function btn(){
-            console.log('1');
-        }
+        
         
         
 
