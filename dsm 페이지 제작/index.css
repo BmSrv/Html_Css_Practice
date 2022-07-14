@@ -1,0 +1,27 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+</style > body {
+    display: flex;
+    background-color: #677a90;
+
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #606364;
+    
+}
+header h1{
+    font-family: 
+}

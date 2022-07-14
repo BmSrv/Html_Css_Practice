@@ -1,0 +1,36 @@
+html = html.replace(/<%=id%>/g, id)
+                            .replace(/<%=itemType%>/g, itemType)
+                            .replace(/<%=cateNm%>/g, item.cateNm)
+                            .replace(/<%=itemCode%>/g, item.itemCode)
+                            .replace(/<%=itemNm%>/g, item.itemNm)
+                            .replace(/<%=itemNmSub%>/g, item.itemNmSub)
+                            .replace(/<%=itemPrice%>/g, item.itemPrice)
+                            .replace(/<%=itemCnt%>/g, itemCnt)
+                            .replace(/<%=itemSizeWidth%>/g, item.itemSizeWidth)
+                            .replace(/<%=itemSizeHeight%>/g, item.itemSizeHeight)
+                            .replace(/<%=itemText%>/g, item.itemText)
+                            .replace(/<%=itemFont%>/g, item.itemFont)
+                            .replace(/<%=itemDiscount%>/g, item.itemDiscount)
+                            .replace(/<%=itemAdjust%>/g, item.itemAdjust)
+                            .replace(/<%=itemTotalPrice%>/g, itemTotalPrice)
+                            .replace(/<%=deliveryCharge%>/g, deliveryCharge)
+                            .replace(/<%=deliveryChargeStr%>/g, deliveryCharge.toLocaleString() + "원")
+                            .replace(/<%=deliveryInvoice%>/g, item.deliveryInvoice)
+                            .replace(/<%=deliveryReleasedDate%>/, item.deliveryReleasedDate)
+                            .replace(/<%=preferredDeliveryReleasedDate%>/, item.preferredDeliveryReleasedDate)
+                            .replace(/<%=deliveryBundleCode%>/g, item.deliveryBundleCode)
+                            .replace(/<%=idOrderItem%>/g, item.idOrderItem)
+                            .replace(/<%=receiverNm%>/g, item.receiverNm)
+                            .replace(/<%=receiverCellPhone%>/g, item.receiverCellPhone)
+                            .replace(/<%=receiverZonecode%>/g, item.receiverZonecode)
+                            .replace(/<%=receiverAddress%>/g, item.receiverAddress)
+                            .replace(/<%=receiverAddressSub%>/g, item.receiverAddressSub)
+                            .replace(/<%=deliveryMemo%>/g, item.deliveryMemo)
+                            .replace(/<%=addOptions%>/g, item.addOptions)
+                            .replace(/<%=addSubOptions%>/g, item.addSubOptions);
+
+                var div = document.createElement("div");
+                div.className = "product_item";
+                div.id = 'product_item_' + id;
+               
+                var htmlDoc = domParser.parseFromString(html, "text/html");

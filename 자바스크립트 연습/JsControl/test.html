@@ -1,0 +1,15 @@
+<script language="javascript">
+function Chk(mode)
+{
+var Tedit = document.getElementById("Tedit");
+
+IMSI = Tedit.value.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,"$1<br>$2");
+// IMSI = Tedit.value.replace(/\n+/g,"<br>"); // 이방법으로 해도 됨
+
+Tedit.value = IMSI;
+}
+</script>
+
+
+<textarea ID="Tedit" style="width:800;height:300;"></textarea>
+<input type="button" value="OK" onclick="Chk();">

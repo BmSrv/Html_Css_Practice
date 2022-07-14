@@ -1,0 +1,195 @@
+<script type='text/html' id='template_item'>
+    <div class='inner'>
+        <input type='hidden' name='idProductItem' value='<%=id%>'>
+        {% if mode == 'update' %}
+        <input type='hidden' name='idOrderItem_<%=id%>' value='<%=idOrderItem%>'>
+        {% endif %}
+        <table class='table-cols order_item'>
+            <tr>
+                <th>구분</th>
+                <td width='350'><%=itemType%></td>
+                <th>분류</th>
+                <td><%=cateNm%></td>
+            </tr>
+            <tr>
+                <th>품목코드</th>
+                <td><%=itemCode%></td>
+                <th>품목명</th>
+                <td>
+                    <%=itemNm%>
+                    / <input type='text' name='itemNmSub_<%=id%>' value='<%=itemNmSub%>' class='w300'>
+                </td>
+            </tr>
+            <tr>
+                <th>판매원가</th>
+                <td>
+                    <input type='number' name='itemPrice_<%=id%>' value='<%=itemPrice%>' class='w120 right'>원
+                </td>
+                <th>수량</th>
+                <td>
+                    <input type='number' name='itemCnt_<%=id%>' value='<%=itemCnt%>' class='w100 right'>개
+                </td>
+            </tr>
+            <tr>
+                <th>사이즈</th>
+                <td>
+                    <div  id="board_size_<%=id%>" class="board_size_wrap"></div>
+                    <input type='number' name='itemSizeWidth_<%=id%>' value='<%=itemSizeWidth%>' class='w70 right' min='0'>Cm
+                    X 
+                    <input type='number' name='itemSizeHeight_<%=id%>' value='<%=itemSizeHeight%>' class='w70 right' min='0'>Cm
+                </td>
+                <th>문구</th>
+                <td>
+                    <input type='text' name='itemText_<%=id%>' value='<%=itemText%>' placeholder='들어갈 문구를 입력해 주세요.'>
+                </td>
+            </tr>
+            <tr>
+                <th>폰트</th>
+                <td>
+                    <input type='text' name='itemFont_<%=id%>' value='<%=itemFont%>' placeholder='폰트를 입력해 주세요'>
+                </td>
+                <th>기본옵션<br>(수량별 적용)</th>
+                <td>
+                    <%=addOptions%>
+                </td>
+            </tr>
+            <tr>
+                <th>추가옵션</th>
+                <td>
+                    <%=addSubOptions%>
+                </td>
+                <th>
+                    샘플이미지
+                    <i class='xi-plus-square add_sample icon_btn' onclick="codefty.order.showSamplePopup('<%=cateNm%>', '<%=id%>');"></i>
+                </th>
+                <td class='sample_images'></td>
+            </tr>
+            <tr>
+                <th>
+                    첨부파일
+                    <i class='xi-plus-square add_files icon_btn' onclick="codefty.fileUpload.showPopup('order_{{ orderNo }}_<%=id%>');"></i>
+                </th>
+                <td>
+                    <ul class='uploaded_files'></ul>
+                </td>
+                <th>할인금액</th>
+                <td>
+                    <input type='number' name='itemDiscount_<%=id%>' value='<%=itemDiscount%>'class='w120 right'>원
+                </td>
+            </tr>
+            <tr>
+                <th>금액조정</th>
+                <td>
+                    <input type='number' name='itemAdjust_<%=id%>' value='<%=itemAdjust%>' class='w120 right'>원
+                </td>
+                <th>총합계</th>
+                <td>
+                    <span class='itemTotalPrice' id='itemTotalPrice_<%=id%>'><%=itemTotalPrice%></span>원
+                </td>
+            </tr>
+            <tr>
+                <th>배송비</th>
+                <td>
+                    <input type='radio' name='deliveryChargeType_<%=id%>' value='pre' id='deliveryChargeType_pre_<%=id%>' checked>
+                    <label for='deliveryChargeType_pre_<%=id%>'>선불</label>
+                    <input type='radio' name='deliveryChargeType_<%=id%>' value="post" id="deliveryChargeType_post_<%=id%>">
+                    <label for="deliveryChargeType_post_<%=id%>">후불</label>
+                    <input type="hidden" name="deliveryCharge_<%=id%>" value="<%=deliveryCharge%>" id="deliveryCharge_<%=id%>">
+                    <span class='deliveryCharge' id="deliveryCharge_str_<%=id%>"><%=deliveryChargeStr%></span>
+                </td>
+                <th>배송조건</th>
+                <td>
+                    <select name='idDeliveryPolicy_<%=id%>' class='wauto'>
+                        <option value=''>- 배송조건 선택 -</option> 
+                    {% if deliveryPolicies.length > 0 %}
+                    {% for item in deliveryPolicies %}
+                        <option value='{{ item.id }}'>{{ item.policyNm }}</option>
+                    {% endfor %}
+                    {% endif %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th valign='top'>운송장</th>
+                <td valign='top'>
+                    <select name='deliveryCompany_<%=id%>' class='wauto'>
+                    {% if deliveryCompanies.length > 0 %}
+                    {% for item in deliveryCompanies %}
+                        <option value='{{ item.companyNm }}' data-type='{{ item.type }}'>{{ item.companyNm }}</option>
+                    {% endfor %}
+                    {% endif %}
+                    </select>
+                    <input type='text' name='deliveryInvoice_<%=id%>' class='w200' value='<%=deliveryInvoice%>'>
+                </td>
+                <th>출고일</th>
+                <td>
+                    <div class='mb5'>실제출고일: <input type='date' name='deliveryReleasedDate_<%=id%>' class='w150' value='<%=deliveryReleasedDate%>'></div>
+                    희망출고일: <input type='date' name='preferredDeliveryReleasedDate_<%=id%>' class='w150' value='<%=preferredDeliveryReleasedDate%>'>
+                </td>
+            </tr>
+            <tr>
+                <th valign='top'>묶음배송코드</th>
+                <td valign='top'>
+                    <input type='text' name='deliveryBundleCode_<%=id%>' placeholder='배송코드가 동일하면 묶음배송 됩니다.' value='<%=deliveryBundleCode%>'>
+                </td>
+                <th valign='top'>개별배송주소</th>
+                <td valign='top'>
+                    <div class='notice_msg'>
+                        <i class='xi-info'></i>묶음배송일 경우 묶음배송코드별 한군데만 입력
+                    </div>
+                    <dl>
+                        <dt>수령인/업체명</dt>
+                        <dd>
+                            <input type='text' name='receiverNm_<%=id%>' value='<%=receiverNm%>'>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>수령인 휴대전화</dt>
+                        <dd>
+                            <input type='text' name='receiverCellPhone_<%=id%>' value='<%=receiverCellPhone%>'>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>
+                            <div class='mb5'>
+                                <input type='text' name='receiverZonecode_<%=id%>' value='<%=receiverZonecode%>' readonly class='w100'>
+                                <span class='sbtn medium black' onclick="codefty.common.showSearchAddress('receiverZonecode_<%=id%>', 'receiverAddress_<%=id%>');">
+                                    <i class='xi-search'></i> 우편번호 검색
+                                </span>
+                            
+                            </div>
+                            <input type='text' name='receiverAddress_<%=id%>' value='<%=receiverAddress%>' readonly class='mb5'>
+                            <input type='text' name='receiverAddressSub_<%=id%>' value='<%=receiverAddressSub%>'>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>배송메시지</dt>
+                        <dd>
+                            <input type='text' name='deliveryMemo_<%=id%>' value='<%=deliveryMemo%>'>
+                        </dd>
+                    </dl>
+                </td>
+            </tr>
+            <tr>
+                <th>디자인상태</th>
+                <td>
+                    <select name='designStatus_<%=id%>' class='wauto'>
+                        {% if designStatuses.length > 0 %}
+                        {% for item in designStatuses %}
+                            <option value='{{ item.statusCd }}'{{ ' selected' if designStatus == item.statusCd }}>{{ item.statusNm }}</option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                </td>
+                <th>시안관리</th>
+                <td>
+                    <span class='sbtn' onclick="codefty.order.showDraftPopup('<%=id%>');">
+                        <i class='xi-file-upload-o'></i>
+                        등록/수정
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</script>

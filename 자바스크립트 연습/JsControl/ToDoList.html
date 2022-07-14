@@ -95,6 +95,14 @@
 
         });
     }
+
+    window.addEventListener("DOMContentLoaded", function() {
+        const tpl = document.getElementById("template");
+        let html = tpl.innerHTML;
+        html = html.replaceAll(/<%=field1%>/g, "1111");
+        console.log(html);
+        document.body.write(html);
+    });
 </script>
 <script>
     const Todo = new ToDoManege();
@@ -110,4 +118,8 @@
         doingval.value = "";
         dateval.value = "";
     });
-</script></html>
+</script>
+<script type='text/html' id="template">
+    <div><%=field1%></div>
+</script>
+</html>
