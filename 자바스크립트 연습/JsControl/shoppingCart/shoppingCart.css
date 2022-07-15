@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.Area{
+    display: flex;
+    width: 100%;
+
+    background-color: bisque;
+}
+.product_Area,.ShoppingCart{
+    background-color: gray;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+
+.Product{
+    
+    display: inline-flex;
+    border: 1px solid black;
+    height: 100px;
+    flex: 1 1 auto;
+    
+}
+
+.Cart{
+    height: 100px;
+    background-color: ivory;
+}
+
+.cartVal{
+    
+}
+
+.cost{
+    
+}

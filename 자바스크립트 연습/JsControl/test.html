@@ -1,15 +1,31 @@
-<script language="javascript">
-function Chk(mode)
-{
-var Tedit = document.getElementById("Tedit");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded",function(){
+        const divEl=document.getElementById('test');
+        const btnEl=document.getElementById('btn');
 
-IMSI = Tedit.value.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,"$1<br>$2");
-// IMSI = Tedit.value.replace(/\n+/g,"<br>"); // 이방법으로 해도 됨
+        btnEl.addEventListener('click',function(){
+            const createEl=document.createElement('h1')
+            createEl.append('dddd')
+            divEl.append(createEl)
+            console.log(createEl)
+        })
 
-Tedit.value = IMSI;
-}
+
+    })
+
+
 </script>
+<body>
+    <button id="btn"></button>
+    <div id="test">
 
 
-<textarea ID="Tedit" style="width:800;height:300;"></textarea>
-<input type="button" value="OK" onclick="Chk();">
+    </div>
+</body>
+</html>

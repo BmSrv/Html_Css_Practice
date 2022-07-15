@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList_ver2</title>
+    <style>
+        .TD_Area {
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+    
+    
+        }
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded",function(){
+            const addbtn=document.getElementById('addbtn');
+            const formEl=document.getElementById('date');
+            
+    
+            addbtn.addEventListener('click',function(){
+                TDL.addDoing(new Doing(formEl.do.value,formEl.when.value));
+            })
+            
+        })
+    </script>
+    <script defer src="ToDoList2.js"></script>
+</head>
+
+
+
+<body>
+    <h1>ToDoList_ver2</h1>
+    <form id="date">
+        <input type="text" name="do">
+        <input type="date" name="when">
+
+    </form>
+    <button id="addbtn">추가</button>
+
+    <div class="TD_Area">
+        
+
+    </div>
+</body>
+
+</html>
