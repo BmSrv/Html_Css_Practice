@@ -29,12 +29,12 @@
 }
 
 .Cart{
-    height: 100px;
+    
     background-color: ivory;
 }
 
 .cartVal{
-    
+    border: 1px solid;
 }
 
 .cost{
